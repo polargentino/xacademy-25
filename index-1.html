@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos XAcademy-25</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Todos los videos de XAcademy-25</h1>
+    <p>En este sitio encontrarás una lista de videos, recursos y ejercicios para la formación en XAcademy 2025.</p>
+</header>
+
+<section class="intro">
+    <p>
+        XAcademy DEV - Información de inicio - Todo lo que necesitás saber.
+        ¡Estamos muy contentos de saludarte y darte la bienvenida a XAcademy Dev 2025!
+    </p>
+    <img src="assets/Webinar Lanzamiento Dev.png" alt="Webinar Lanzamiento Dev">
+</section>
+
+<section>
+    <h2>Introducción a XAcademy - Nuestros objetivos</h2>
+    <ul>
+        <li><a href="https://youtu.be/HMFPhGbEaxc">Presentación y bienvenida</a></li>
+        <li><a href="https://youtu.be/E42o29zyW5I">Objetivos de XAcademy</a></li>
+        <li><a href="https://youtu.be/Bwby-h0sbLw">XAcademy - nuestro programa</a></li>
+        <li><a href="https://youtu.be/TolK85HGJE8">Webinar Lanzamiento - 07/08</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Metodologías Ágiles</h2>
+    <ul>
+        <li><a href="https://youtu.be/DjK-lt59FNg">Metodologías Ágiles - intro</a></li>
+        <li><a href="https://youtu.be/kS-M4BrE3EU">Parte 1</a></li>
+        <li><a href="https://youtu.be/p_XB9umck74">Parte 2</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Herramientas de Desarrollo</h2>
+    <h3>Entornos Linux, Windows y Ubuntu</h3>
+    <ul>
+        <li><a href="https://youtu.be/xjqrcPUCxGI">Introducción</a></li>
+        <li><a href="https://youtu.be/WcYe6lkMSQs">Instalación Ubuntu</a></li>
+        <li><a href="https://youtu.be/5gfC_6FHrNg">Visual Studio Code</a></li>
+        <li><a href="https://youtu.be/aW3ttI91Qkk">Git - parte 1</a></li>
+        <li><a href="https://youtu.be/PAHKkaZ-U4s">Git - parte 2</a></li>
+        <li><a href="https://youtu.be/MDHLsp7lIC0">Git - parte 3</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Docker</h2>
+    <ul>
+        <li><a href="https://youtu.be/_AD95efE2PU">Docker - Intro</a></li>
+        <li><a href="https://youtu.be/zxrYh5kOym4">Arquitectura de Servidores</a></li>
+        <li><a href="https://youtu.be/gdMD0MVbMfk">Virtualización</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Introducción a las bases de datos</h2>
+    <ul>
+        <li><a href="https://youtu.be/j6Mz9P1pKzo">Introducción</a></li>
+        <li><a href="https://youtu.be/EZBrZBzEAdk">Instalación MySQL</a></li>
+        <li><a href="https://youtu.be/rYhs2A7JFtg">MySQL - Parte 1</a></li>
+        <li><a href="https://youtu.be/heA8qCkLYkk">MySQL - Parte 2</a></li>
+    </ul>
+</section>
+
+<section class="tarea">
+    <h2>Ejercicio GitHub con Bash</h2>
+    <p><strong>Consigna:</strong></p>
+    <ol>
+        <li>Crea un repositorio público llamado <code>loremipsum</code>.</li>
+        <li>Clona, crea rama <code>generarlipsum</code> y agrega <code>lipsum.sh</code>.</li>
+        <li>Genera 5 archivos <code>.txt</code> desde <a href="https://www.lipsum.com">lipsum.com</a>.</li>
+        <li>Verifica contenido y haz commit/push.</li>
+        <li>Crea <code>contar.sh</code> que cuente líneas por archivo.</li>
+        <li>Ejecuta:
+            <pre>
+bash ./contar.sh
+loremipsum-1.txt tiene 4 líneas.
+...
+            </pre>
+        </li>
+        <li>Commit y Pull Request a main.</li>
+    </ol>
+    <pre>
+#!/bin/bash
+for i in {1..5}
+do
+    lineas=$(shuf -i 1-20 -n 1)
+    lorem=$(curl -s https://www.lipsum.com/feed/xml?amount=$lineas |
+        sed -n '/<lipsum>/,/<\/lipsum>/p' |
+        sed -e 's/<lipsum>//g' -e 's/<\/lipsum>//g')
+    echo "$lorem" >> loremipsum-$i.txt
+done
+    </pre>
+</section>
+
+<section>
+    <h2>HTML - Introducción</h2>
+    <ul>
+        <li><a href="https://youtu.be/e1LddVt7Azc">HTML - Introducción</a></li>
+        <li><a href="https://youtu.be/hi9ZJFjETh4">Elementos HTML</a></li>
+        <li><a href="https://youtu.be/r4Ltowz9cYU">Tipos de elementos</a></li>
+        <li><a href="https://youtu.be/b456BfLTI9U">Estructura HTML</a></li>
+        <li><a href="https://youtu.be/TYEEpRcr7Rw">Contenedores Semánticos</a></li>
+        <li><a href="https://youtu.be/YaDKeEDe6zI">Texto HTML</a></li>
+        <li><a href="https://youtu.be/Lb5jRc-TRVI">Listas HTML</a></li>
+        <li><a href="https://youtu.be/6UG3oH60b8E">Tablas HTML</a></li>
+        <li><a href="https://youtu.be/6TYhRANwHJk">Formularios 1</a></li>
+        <li><a href="https://youtu.be/g0iHMCPSpwI">Formularios 2</a></li>
+        <li><a href="https://youtu.be/gXW5-2tDz58">Formularios 3</a></li>
+        <li><a href="https://youtu.be/M_dlIcmp4jM">Formularios 4</a></li>
+        <li><a href="https://youtu.be/EP3t0lc6aaY">Formularios 5</a></li>
+        <li><a href="https://youtu.be/nuOQCSSoa5Y">Hipervínculos</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>&copy; 2025 XAcademy - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
+

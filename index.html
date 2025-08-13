@@ -35,18 +35,104 @@ Si todavía no lo hiciste, te invitamos a sumarte a nuestro espacio de Discord! 
 
 </p>
     <ul>
+        
+        <h2>Introducción a XAcademy - Nuestros objetivos</h2>
         <li><a href="https://youtu.be/HMFPhGbEaxc">Presentación y bienvenida</a></li>
         <li><a href="https://youtu.be/E42o29zyW5I">Objetivos de XAcademy</a></li>
         <li><a href="https://youtu.be/Bwby-h0sbLw">XAcademy - nuestro programa de formación en tecnología</a></li>
         <li><a href="https://youtu.be/TolK85HGJE8?si=lPZ0_NuPfsmkAx_K">Webinar Lanzamiento - 07/08</a></li>
-        <li><a href="">Video 4</a></li>
-        <li><a href="">Video 5</a></li>
-        <li><a href="">Video 6</a></li>
-        <li><a href="">Video 7</a></li>
-        <li><a href="">Video 8</a></li>
-        <li><a href="">Video 9</a></li>
-        <li><a href="">Video 10</a></li>
-        <li><a href="">Video 11</a></li>
+
+        <h2>Preacademy-PDFs</h2>
+        <p>Test nivelatorio</p>
+
+        <h2>Metodologías Ágiles</h2>
+        
+        <li><a href="https://youtu.be/DjK-lt59FNg">Metodologías Ágiles-intro</a></li>
+        <li><a href="https://youtu.be/kS-M4BrE3EU">Parte 1 - Marco de Trabajo Ágil</a></li>
+        <li><a href="https://youtu.be/p_XB9umck74">Parte 2 - Marco de Trabajo Ágil</a></li>
+
+
+        <h2>Herramientas de desarrolo - Prerrequisitos: Metodologías Ágiles</h2>
+        <h3>Entornos de desarrollo: Linux/Windows y Ubuntu</h3>
+        <li><a href="https://youtu.be/xjqrcPUCxGI">Introducción a las herramientas de desarrollo</a></li>
+        <li><a href="https://youtu.be/WcYe6lkMSQs">Instalación Ubuntu en Linux y Windows</a></li>
+        <li><a href="https://youtu.be/5gfC_6FHrNg">Visual Studio Code</a></li>
+        <li><a href="https://youtu.be/aW3ttI91Qkk">Git - parte 1</a></li>
+        <li><a href="https://youtu.be/PAHKkaZ-U4s">Git - parte 2</a></li>
+        <li><a href="https://youtu.be/MDHLsp7lIC0">Git - parte 3</a></li>
+
+        <h2>Docker</h2>
+        <li><a href="https://youtu.be/_AD95efE2PU">Docker - Intro</a></li>
+        <li><a href="https://youtu.be/zxrYh5kOym4">Docker - Arquitectura de Servidores</a></li>
+        <li><a href="https://youtu.be/gdMD0MVbMfk">Docker - Virtualización</a></li>
+
+
+        <h2>Introducción a las bases de datos</h2>
+        <li><a href="https://youtu.be/j6Mz9P1pKzo">Introducción a las bases de datos</a></li>
+        <li><a href="https://youtu.be/EZBrZBzEAdk">Instalación MySQL</a></li>
+        <li><a href="https://youtu.be/rYhs2A7JFtg">MySQL - Parte 1</a></li>
+        <li><a href="https://youtu.be/heA8qCkLYkk">MySQL - Parte 2</a></li>
+
+        <h2>Tarea</h2>
+        <p>
+    <strong>Ejercicio Github con Bash</strong><br>
+    <em>Fecha de entrega:</em> No hay fecha de entrega<br>
+    <em>Puntos:</em> 0<br><br>
+
+    <strong>Consigna:</strong><br>
+    1. Crea un nuevo repositorio público en GitHub llamado <code>loremipsum</code>.<br>
+    2. Clona el repositorio en tu máquina local.<br>
+    3. Crea una nueva rama llamada <code>generarlipsum</code>.<br>
+    4. Agrega el archivo <code>lipsum.sh</code> provisto en esta tarea.<br>
+    5. Genera 5 archivos <code>.txt</code> usando <a href="https://www.lipsum.com" target="_blank">lipsum.com</a> ejecutando:<br>
+       <code>bash ./lipsum.sh</code> (asegúrate de tener <code>curl</code> instalado con <code>sudo apt install curl</code>).<br>
+    6. Verifica que se hayan creado los 5 archivos y que tengan contenido.<br>
+    7. Crea un commit con los archivos generados y <code>lipsum.sh</code>, luego haz push a GitHub.<br>
+    8. Crea un nuevo archivo <code>contar.sh</code> que lea cada <code>.txt</code> y muestre cuántas líneas tiene cada uno.<br>
+    9. Ejemplo de ejecución:<br>
+    <code>
+        bash ./contar.sh<br>
+        loremipsum-1.txt tiene 4 líneas.<br>
+        loremipsum-2.txt tiene 7 líneas.<br>
+        loremipsum-3.txt tiene 15 líneas.<br>
+        loremipsum-4.txt tiene 7 líneas.<br>
+        loremipsum-5.txt tiene 16 líneas.<br>
+    </code>
+    10. Haz un nuevo commit en la rama <code>generarlipsum</code> sumando <code>contar.sh</code>.<br>
+    11. Realiza un merge de <code>generarlipsum</code> a la rama principal mediante una Pull Request.<br><br>
+
+    <strong>Comandos útiles:</strong> <code>echo</code>, <code>wc</code>, <code>man {comando}</code>, <code>curl cheat.sh/{comando}</code>.<br><br>
+
+    <strong>Archivo lipsum.sh:</strong><br>
+    <pre>
+#!/bin/bash
+for i in {1..5}
+do
+    lineas=$(shuf -i 1-20 -n 1)
+    lorem=$(curl -s https://www.lipsum.com/feed/xml?amount=$lineas | sed -n '/<lipsum>/,/<\/lipsum>/p' | sed -e 's/<lipsum>//g' -e 's/<\/lipsum>//g')
+    echo "$lorem" >> loremipsum-$i.txt
+done
+    </pre>
+</p>
+
+
+<h2> HTML - Prerrequisitos: Herramientas de Desarrollo</h2>
+<h3>Introducción a HTML - Presentación</h3>
+        <li><a href="https://youtu.be/e1LddVt7Azc">HTML - Introducción</a></li>
+        <li><a href="https://youtu.be/hi9ZJFjETh4">Elementos HTML</a></li>
+        <li><a href="https://youtu.be/r4Ltowz9cYU">Tipos de elementos HTML</a></li>
+        <li><a href="https://youtu.be/b456BfLTI9U">Estructura HTML</a></li>
+        <li><a href="https://youtu.be/TYEEpRcr7Rw">Contenedores Semánticos HTML</a></li>
+        <li><a href="https://youtu.be/YaDKeEDe6zI">Texto - HTML</a></li>
+        <li><a href="https://youtu.be/Lb5jRc-TRVI">Listas HTML</a></li>
+        <li><a href="https://youtu.be/6UG3oH60b8E">Tablas HTML</a></li>
+        <li><a href="https://youtu.be/6TYhRANwHJk">Formularios 1</a></li>
+        <li><a href="https://youtu.be/g0iHMCPSpwI">Formularios 2</a></li>
+        <li><a href="https://youtu.be/gXW5-2tDz58">Formularios 3</a></li>
+        <li><a href="https://youtu.be/M_dlIcmp4jM">Formularios 4</a></li>
+        <li><a href="https://youtu.be/EP3t0lc6aaY">Formularios 5</a></li>
+        <li><a href="https://youtu.be/nuOQCSSoa5Y">Hipervínculos HTML</a></li>
+        
     </ul>
 </body>
 </html>
