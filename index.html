@@ -159,5 +159,64 @@ done
         </li>
         <li>Crea una <strong>Pull Request</strong> en GitHub para fusionar tus cambios con la rama principal del repositorio.</li>
     </ol>
+
+    <h1>Ejercicio Git y GitHub - Guía Paso a Paso</h1>
+
+    <div class="paso">
+        <h3>1. Hacer un fork del repositorio</h3>
+        <p>Ve al repositorio <a href="https://github.com/SantexGroup/SantexAcademy" target="_blank">SantexGroup/SantexAcademy</a> en GitHub y haz clic en el botón <strong>Fork</strong> (arriba a la derecha). Selecciona tu cuenta personal como destino.</p>
+    </div>
+
+    <div class="paso">
+        <h3>2. Clonar el repositorio forkeado</h3>
+        <p>Ve a tu repositorio forkeado en GitHub, copia la URL SSH y ejecuta en tu terminal:</p>
+        <pre><code>git clone git@github.com:TU_USUARIO/SantexAcademy.git
+cd SantexAcademy</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>3. Crear una nueva rama</h3>
+        <p>Crea la rama <code>informacion-alumno</code>:</p>
+        <pre><code>git branch informacion-alumno</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>4. Cambiar a la nueva rama</h3>
+        <p>Cambia a la rama recién creada:</p>
+        <pre><code>git checkout informacion-alumno</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>5. Editar el archivo README.md</h3>
+        <p>Abre el archivo <code>README.md</code> y agrega tu información (nombre, apellido, nacionalidad y email). Ejemplo:</p>
+        <pre><code>## Información del Alumno
+- Nombre: Tu Nombre
+- Apellido: Tu Apellido
+- Nacionalidad: Argentina
+- Email: tu.email@example.com</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>6. Agregar los cambios al área de preparación</h3>
+        <p>Prepara los cambios para el commit:</p>
+        <pre><code>git add README.md</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>7. Crear un commit</h3>
+        <p>Guarda los cambios con un mensaje descriptivo:</p>
+        <pre><code>git commit -m "Agrega información del alumno al README"</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>8. Subir los cambios a GitHub</h3>
+        <p>Sube la rama a tu repositorio remoto:</p>
+        <pre><code>git push origin informacion-alumno</code></pre>
+    </div>
+
+    <div class="paso">
+        <h3>9. Crear una Pull Request</h3>
+        <p>Ve a tu repositorio forkeado en GitHub y haz clic en <strong>Compare & pull request</strong>. Completa el título y la descripción, y crea la Pull Request.</p>
+    </div>
 </body>
 </html>
