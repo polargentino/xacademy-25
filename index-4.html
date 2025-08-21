@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Docker y MySQL en Debian 13</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0 20px;
+    }
+    h1, h2, h3 {
+      color: #0073e6;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    ul {
+      margin: 10px 0 10px 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #0073e6;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🐳 Guía Completa: Docker y MySQL en Debian 13</h1>
+    <p>Aprende paso a paso cómo instalar Docker y ejecutar contenedores, incluyendo MySQL y Nginx.</p>
+  </header>
+
+  <section>
+    <h2>1️⃣ Preparativos en Debian 13</h2>
+    <p>Antes de instalar Docker, actualiza tu sistema:</p>
+    <pre><code>sudo apt update
+sudo apt upgrade -y</code></pre>
+  </section>
+
+  <section>
+    <h2>2️⃣ Instalar dependencias necesarias</h2>
+    <pre><code>sudo apt install -y ca-certificates curl gnupg lsb-release</code></pre>
+    <p>Estas herramientas permiten manejar llaves GPG, repositorios y conexiones seguras.</p>
+  </section>
+
+  <section>
+    <h2>3️⃣ Agregar la llave GPG de Docker</h2>
+    <pre><code>sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</code></pre>
+    <p>Esto asegura que APT confíe en los paquetes de Docker.</p>
+  </section>
+
+  <section>
+    <h2>4️⃣ Configurar el repositorio oficial de Docker</h2>
+    <pre><code>echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt;/dev/null</code></pre>
+  </section>
+
+  <section>
+    <h2>5️⃣ Instalar Docker</h2>
+    <pre><code>sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></pre>
+  </section>
+
+  <section>
+    <h2>6️⃣ Verificar la instalación</h2>
+    <pre><code>sudo docker run hello-world</code></pre>
+    <p>Si ves el mensaje <strong>"Hello from Docker!"</strong>, la instalación fue exitosa. 🎉</p>
+  </section>
+
+  <section>
+    <h2>7️⃣ Configurar Docker para usar sin <code>sudo</code></h2>
+    <pre><code>sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world</code></pre>
+    <p>Si funciona sin <code>sudo</code>, todo está listo. ✅</p>
+  </section>
+
+  <section>
+    <h2>8️⃣ Habilitar Docker al iniciar Debian</h2>
+    <pre><code>sudo systemctl enable docker
+sudo systemctl enable containerd
+systemctl status docker
+systemctl status containerd</code></pre>
+  </section>
+
+  <section>
+    <h2>9️⃣ Comandos básicos de Docker</h2>
+    <table>
+      <tr><th>Comando</th><th>Descripción</th></tr>
+      <tr><td>docker --version</td><td>Ver versión de Docker</td></tr>
+      <tr><td>docker compose version</td><td>Ver versión de Docker Compose</td></tr>
+      <tr><td>docker images</td><td>Listar imágenes descargadas</td></tr>
+      <tr><td>docker ps</td><td>Listar contenedores activos</td></tr>
+      <tr><td>docker ps -a</td><td>Listar todos los contenedores</td></tr>
+      <tr><td>docker stop &lt;nombre&gt;</td><td>Detener contenedor</td></tr>
+      <tr><td>docker rm &lt;nombre&gt;</td><td>Eliminar contenedor</td></tr>
+      <tr><td>docker pull &lt;imagen&gt;</td><td>Descargar imagen</td></tr>
+      <tr><td>docker build -t &lt;nombre&gt; .</td><td>Crear imagen desde Dockerfile</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>🔹 10️⃣ Probar contenedor avanzado: Nginx</h2>
+    <pre><code>docker run -d -p 8080:80 --name mi-nginx nginx</code></pre>
+    <p>Abre tu navegador en <code>http://localhost:8080</code> para ver la página de bienvenida de Nginx.</p>
+    <pre><code>docker ps
+docker stop mi-nginx
+docker rm mi-nginx</code></pre>
+  </section>
+
+  <section>
+    <h2>🔹 11️⃣ Instalar MySQL con Docker</h2>
+    <h3>1. Descargar la imagen oficial</h3>
+    <pre><code>docker pull mysql:8.1</code></pre>
+
+    <h3>2. Crear y ejecutar un contenedor</h3>
+    <pre><code>docker run --name mi-mysql -e MYSQL_ROOT_PASSWORD=MiClaveSegura123 -p 3306:3306 -d mysql:8.1</code></pre>
+
+    <h3>3. Verificar que MySQL está corriendo</h3>
+    <pre><code>docker ps</code></pre>
+
+    <h3>4. Conectarse desde el contenedor</h3>
+    <pre><code>docker exec -it mi-mysql mysql -uroot -p</code></pre>
+
+    <h3>5. Conectarse desde la máquina (opcional)</h3>
+    <pre><code>mysql -h 127.0.0.1 -P 3306 -uroot -p</code></pre>
+
+    <h3>6. Detener y eliminar contenedor</h3>
+    <pre><code>docker stop mi-mysql
+docker rm mi-mysql</code></pre>
+
+    <h3>💡 Tip:</h3>
+    <pre><code>docker run --name mi-mysql \
+  -e MYSQL_ROOT_PASSWORD=MiClaveSegura123 \
+  -p 3306:3306 \
+  -v mysql-data:/var/lib/mysql \
+  -d mysql:8.1</code></pre>
+    <p>Usar un volumen para mantener los datos aunque borres el contenedor.</p>
+  </section>
+
+  <section>
+    <h2>✅ Conclusión</h2>
+    <p>Con estos pasos tienes un <strong>entorno completo de Docker y MySQL en Debian 13</strong>, listo para:</p>
+    <ul>
+      <li>Probar contenedores de prueba.</li>
+      <li>Ejecutar servidores web como Nginx.</li>
+      <li>Crear y probar bases de datos MySQL.</li>
+      <li>Construir y experimentar con tus propias imágenes.</li>
+    </ul>
+    <p>🎓 ¡Listo para enseñar o practicar Docker y MySQL como un profesional!</p>
+  </section>
+
+</body>
+</html>
