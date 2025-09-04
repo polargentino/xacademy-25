@@ -1,0 +1,78 @@
+Ejercicio de práctica 2 - JS
+Fecha de entrega No hay fecha de entrega Puntos 0
+Les dejamos este ejercicio para que puedan practicar lo abordado en la clase 2 de JavaScript, hasta manejo de errores.
+
+Consideramos importante destacar que dado que son pequeños ejercicios de práctica, nuestros mentores están disponibles para resolver consultas en Discord para ayudarlos pero no los corregiremos nosotros, sino que habilitaremos la revisión entre pares para que puedan revisar la ejercitación de sus compañeros/as de estudio. 
+
+¡Esperamos que les sean de utilidad para practicar lo revisado en los videos!
+
+Consigna:
+
+
+Escribir una función que reciba un array de strings y devuelva un string concatenando todos sus valores
+ 
+
+Ejemplo
+
+Dado['hola', 'chau']
+
+Retornar: 'holachau'
+
+
+
+
+Dados 2 array, devolver un array con todos los elementos que coinciden entre ellos
+ 
+
+Ejemplo:
+
+Array1: ['rojo', 'azul', 'amarillo']
+
+Array2: ['blanco', 'negro', 'rojo']
+
+Resultado: ['rojo']
+
+ 
+
+Ejemplo 2:
+
+Array1: [4, 3, true, 'manzana']
+
+Array2: ['pera', 3, false, true, 3, true]
+
+Resultado: [3, true]
+
+
+
+
+Dado el siguiente objeto
+let carrito = {
+
+    total: 10,
+
+    productos: [
+
+        {
+
+            nombre: 'leche',
+
+            precio: 2,
+
+            unidades: 5
+
+        }
+
+    ]
+
+}
+
+ 
+
+completar la siguiente función para que agregue un nuevo producto al carrito y actualice su total
+
+function agregarProducto(nombre, precio, unidades) {
+
+    // Completar aca...
+
+}
+
