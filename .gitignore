@@ -1,5 +1,0 @@
-# Ignorar archivos CSV
-*.csv
-
-# Ignorar archivos SQL
-*.sql
