@@ -1,0 +1,7 @@
+# Ignorar archivos CSV
+female_players.csv
+male_players.csv
+
+# Ignorar archivos SQL
+fifa_female_players.sql
+fifa_male_players.sql
